@@ -1,0 +1,35 @@
+#5.2
+def filler(a,b):
+    if a == []:
+        return
+    b[a[0]] += 1
+    filler(a[1:],b)
+    
+def csort(b):
+    
+    if b == []:
+        return []
+    
+    val = csort(b[:-1])
+    #for i in range(val[-1]):
+    #    val += i
+    #print(b[:-1])
+    #print(f' len val {len(val)}')
+    #if (val != []):
+        #print(f' b {b}')
+   # print(f' [len(val) - 1] {[len(val) - 1]}')
+    #print(f' val[-1] {val[-1]}')
+   # print(f' [len(val) - 1] * val[-1] {[len(val) - 1] * val[-1]}')
+    #print(f' b[-1] {b[-1]}')
+    #example
+    # [5] * 4
+    #[5, 5, 5, 5]
+    val += ([len(b) - 1] * b[-1])
+    return val
+    
+b = [0,0,0,0,0]
+a = [2,2,3,2,0,1,3,2,0,0,4]
+
+filler(a, b)
+print(b)
+print(csort(b))
